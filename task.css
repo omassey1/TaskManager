@@ -1,118 +1,93 @@
-@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap");
-
-    * {
-      margin: 0
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 50px;
-      background-color: #fff2df;
-      height: 100vh;
-      font-family: "Times New Roman", Times, serif;
-      border-bottom: .5rem .5rem 0 0;
-    }
-
-    .app {
-      width: 80%;
-      
-    }
-
-    @media (max-width:768px) {
-      .app {
-        width: 90%;
-      }
-    }
-
-    .app h1 {
-      color: white;
-      font-size: 40px;
-      padding: 10px 0;
-      text-align: center;
-      
-      background-color: #d9ad7c;
-      font-family: "Times New Roman", Times, serif;
-    }
-
-    .app form {
-      display: flex;
-      width: 100%;
-      background-color: #262e4c;
-    }
-
-    .app form input {
-      border: none;
-      background-color: #a2836e;
-      font-size: 18px;
-      color: white;
-      padding: 10px;
-      width: 90%;
-      border-bottom: .5rem .5rem 0 0;
-    }
-
-    .app form button {
-      border: none;
-      color: white;
-      background-color: #674d3c;
-      font-size: 25px;
-      font-weight: 600;
-      height: 42px;
-      width: 10%;
-      border-bottom: .5rem .5rem 0 0;
-    }
-
-    .app ul {
-      list-style: none;
-      color: #e0e0e0;
-      padding: 30px;
-      border-radius: .5rem .5rem 0 0;
-    }
-
-    .app ul li {
-      padding: 10px;
-      background-color: #4f3222;
-      border-bottom: .5rem .5rem 0 0 solid #3a4674;
-    }
-
-    .check {
-      width: 0.8em;
-      height: 0.8em;
-      cursor: pointer;
-      border-radius: 50%;
-      background-color: white;
-      border: 1px solid rgb(255, 255, 255);
-      -webkit-appearance: none;
-    }
-
-    .check:checked {
-      background-color: #1dd2af;
-    }
-
-    .task {
-      font-size: 18px;
-      padding: 0 10px;
-      width: fit-content;
-      background: transparent;
-      border: none;
-      color: #fff;
-    }
-
-    .task:focus {
-      outline: none;
-    }
-
-    .app ul li i {
-      float: right;
-      cursor: pointer;
-    }
-
-    .app ul li i:hover {
-      color: rgb(255, 82, 82);
-    }
-
-    .completed {
-      color: rgba(192, 192, 192, 0.8);
-      text-decoration: line-through;
-    }
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #0b87ff;
+}
+.container {
+  width: 90%;
+  max-width: 34em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+#new-task {
+  position: relative;
+  background-color: #ffffff;
+  padding: 1.8em 1.25em;
+  border-radius: 0.3em;
+  box-shadow: 0 1.25em 1.8em rgba(1, 24, 48, 0.15);
+  display: grid;
+  grid-template-columns: 9fr 3fr;
+  gap: 1em;
+}
+#new-task input {
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  border: none;
+  border-bottom: 2px solid #d1d3d4;
+  padding: 0.8em 0.5em;
+  color: #111111;
+  font-weight: 500;
+}
+#new-task input:focus {
+  outline: none;
+  border-color: #0b87ff;
+}
+#new-task button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  background-color: #0b87ff;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+#tasks {
+  background-color: #ffffff;
+  position: relative;
+  padding: 1.8em 1.25em;
+  margin-top: 3.8em;
+  width: 100%;
+  box-shadow: 0 1.25em 1.8em rgba(1, 24, 48, 0.15);
+  border-radius: 0.6em;
+}
+.task {
+  background-color: #ffffff;
+  padding: 0.3em 0.6em;
+  margin-top: 0.6em;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #d1d3d4;
+  cursor: pointer;
+}
+.task span {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+.task button {
+  color: #ffffff;
+  padding: 0.8em 0;
+  width: 2.8em;
+  border-radius: 0.3em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.delete {
+  background-color: #fb3b3b;
+}
+.edit {
+  background-color: #0b87ff;
+  margin-left: auto;
+  margin-right: 3em;
+}
+.completed {
+  text-decoration: line-through;
+}
