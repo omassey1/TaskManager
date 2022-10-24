@@ -12,10 +12,10 @@ function loadTasks() {
   // if not then return
   if (localStorage.getItem("tasks") == null) return;
 
-  // Gets the tasks from localStorage and converts it to an array
+  // Get the tasks from localStorage and convert it to an array
   let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
 
-  // Loops through the tasks and will add them to the list
+  // Loop through the tasks and add them to the list
   tasks.forEach(task => {
     const list = document.querySelector("ul");
     const li = document.createElement("li");
