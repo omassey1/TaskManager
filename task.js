@@ -5,25 +5,7 @@ let deleteTasks, editTasks, tasks;
 let updateNote = "";
 let count;
 
-//Disable Edit Button
-const disableButtons = (bool) => {
-  let editButtons = document.getElementsByClassName("edit");
-  Array.from(editButtons).forEach((element) => {
-    element.disabled = bool;
-  });
-};
-//Remove Task from local storage
-const removeTask = (taskValue) => {
-  localStorage.removeItem(taskValue);
-  displayTasks();
-};
-//Add tasks to local storage
-const updateStorage = (index, taskValue, completed) => {
-  localStorage.setItem(`${index}_${taskValue}`, completed);
-  displayTasks();
-};
-
-//Function that Display's The Tasks
+//Function to Display The Tasks
 const displayTasks = () => {
   if (Object.keys(localStorage).length > 0) {
     tasksDiv.style.display = "inline-block";
@@ -40,24 +22,20 @@ const displayTasks = () => {
     //Get all values
     let value = localStorage.getItem(key);
     let taskInnerDiv = document.createElement("div");
-    //Returns a live collection of the task
     taskInnerDiv.classList.add("task");
     taskInnerDiv.setAttribute("id", key);
     taskInnerDiv.innerHTML = `<span id="taskname">${key.split("_")[1]}</span>`;
-    //localstorage would normally store boolean as string so we parse it to boolean back
+    //localstorage would store boolean as string so we parse it to boolean back
     let editButton = document.createElement("button");
     editButton.classList.add("edit");
-    //Adds the edit icon
     editButton.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
     if (!JSON.parse(value)) {
       editButton.style.visibility = "visible";
     } else {
-      //For when task is completed 
       editButton.style.visibility = "hidden";
       taskInnerDiv.classList.add("completed");
     }
     taskInnerDiv.appendChild(editButton);
-    //Adds the trash icon
     taskInnerDiv.innerHTML += `<button class="delete"><i class="fa-solid fa-trash"></i></button>`;
     tasksDiv.appendChild(taskInnerDiv);
   }
@@ -68,6 +46,7 @@ window.onload = () => {
   count = Object.keys(localStorage).length;
   displayTasks();
 };
+
   //tasks completed
   tasks = document.querySelectorAll(".task");
   tasks.forEach((element, index) => {
@@ -110,9 +89,26 @@ window.onload = () => {
     });
   });
 };
-//Function that adds a New Task
+//Disable Edit Button
+const disableButtons = (bool) => {
+  let editButtons = document.getElementsByClassName("edit");
+  Array.from(editButtons).forEach((element) => {
+    element.disabled = bool;
+  });
+};
+//Remove Task from local storage
+const removeTask = (taskValue) => {
+  localStorage.removeItem(taskValue);
+  displayTasks();
+};
+//Add tasks to local storage
+const updateStorage = (index, taskValue, completed) => {
+  localStorage.setItem(`${index}_${taskValue}`, completed);
+  displayTasks();
+};
+//Function that Adds New Task
 document.querySelector("#push").addEventListener("click", () => {
-  //Enables edit button
+  //Enables the edit button
   disableButtons(false);
   if (newTaskInput.value.length == 0) {
     alert("Please Enter A Task");
