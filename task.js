@@ -23,12 +23,6 @@ const updateStorage = (index, taskValue, completed) => {
   displayTasks();
 };
 
-//Function on window load
-window.onload = () => {
-  updateNote = "";
-  count = Object.keys(localStorage).length;
-  displayTasks();
-};
 //Function that Display's The Tasks
 const displayTasks = () => {
   if (Object.keys(localStorage).length > 0) {
@@ -67,6 +61,13 @@ const displayTasks = () => {
     taskInnerDiv.innerHTML += `<button class="delete"><i class="fa-solid fa-trash"></i></button>`;
     tasksDiv.appendChild(taskInnerDiv);
   }
+
+//Function on window load
+window.onload = () => {
+  updateNote = "";
+  count = Object.keys(localStorage).length;
+  displayTasks();
+};
   //tasks completed
   tasks = document.querySelectorAll(".task");
   tasks.forEach((element, index) => {
